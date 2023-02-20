@@ -120,3 +120,13 @@
 //   .filter((el) => el.age > 20)
 //   .map((el) => (el.name === "mustafa" ? { ...el, name: "mostafa" } : el));
 // console.log(newNames);
+
+//reduce
+// const arr = [10, 14, 12, 15, 14, 15, 20, 35];
+// const addArr = arr.reduce((acc, cur) => acc + cur, 0);
+// console.log(addArr);
+
+// const myName = ["s", "@", "h", "@", "a", "@", "w", "@", "k", "@", "y", "@"];
+// const nameFiltered = myName.filter((el) => el !== "@");
+// const finalName = nameFiltered.reduce((acc, cur) => acc + cur, "");
+// console.log(finalName);
