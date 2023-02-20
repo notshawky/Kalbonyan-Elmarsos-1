@@ -89,3 +89,34 @@
 // const arr = [10, 7, 16, 30, 14, 15];
 // const filteredArr = arr.filter((el) => el > 10 && el < 30);
 // console.log(filteredArr);
+
+// const arr = [10, 7, 16, 30, 14, 15];
+// const arrFiltered = arr.filter((el) => el !== 16);
+// console.log(arrFiltered);
+
+// practice on filter/map/sort/slice/splice/forEach
+
+// const compare = (a, b) => {
+//   const ageA = a.age;
+//   const ageB = b.age;
+//   return ageB - ageA;
+// };
+
+// const names = [
+//   { name: "mostafa", age: 22 },
+//   { name: "Jane", age: 22 },
+//   { name: "Jack", age: 18 },
+//   { name: "Jill", age: 24 },
+//   { name: "mustafa", age: 25 },
+//   { name: "Joe", age: 21 },
+//   { name: "Jenny", age: 19 },
+//   { name: "Jen", age: 23 },
+//   { name: "Jenny", age: 21 },
+// ];
+
+// const newNames = names
+//   .sort(compare)
+//   .slice(0, 5)
+//   .filter((el) => el.age > 20)
+//   .map((el) => (el.name === "mustafa" ? { ...el, name: "mostafa" } : el));
+// console.log(newNames);
