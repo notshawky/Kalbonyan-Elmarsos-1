@@ -136,3 +136,8 @@
 //   "Name: Mostafa;Age: 22;Address: 1234, ABC Street, XYZ City, ABC Country;Phone: 1234567890;Email: mostafashawky100000 @gmail.com;Skills:html css javascript";
 // const cvArr = cv.split(";");
 // console.log(cvArr);
+
+//join
+// const myName = ["mostafa", "shawky", "mostafa"];
+// const nameJoined = myName.join(" ");
+// console.log(nameJoined);
