@@ -130,3 +130,9 @@
 // const nameFiltered = myName.filter((el) => el !== "@");
 // const finalName = nameFiltered.reduce((acc, cur) => acc + cur, "");
 // console.log(finalName);
+
+//split
+// const cv =
+//   "Name: Mostafa;Age: 22;Address: 1234, ABC Street, XYZ City, ABC Country;Phone: 1234567890;Email: mostafashawky100000 @gmail.com;Skills:html css javascript";
+// const cvArr = cv.split(";");
+// console.log(cvArr);
