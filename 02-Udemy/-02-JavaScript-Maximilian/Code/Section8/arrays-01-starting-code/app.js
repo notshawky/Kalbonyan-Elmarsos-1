@@ -177,3 +177,9 @@
 // ];
 // const maxNum = Math.max(...num);
 // console.log(maxNum);
+
+//rest operator
+let getCv = (firstName, lastName, ...arg) => {
+  console.log(firstName, lastName, arg);
+};
+getCv("mostafa", "shawky", 21, 01004813734);
