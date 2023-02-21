@@ -141,3 +141,39 @@
 // const myName = ["mostafa", "shawky", "mostafa"];
 // const nameJoined = myName.join(" ");
 // console.log(nameJoined);
+
+//spread operator
+
+//contact array with spread operator
+// const name = ["mostafa", "shawky"];
+// const age = [22];
+// const contact = [01004813734, "Email: mostafashawky100000@gmail.com"];
+// const skills = ["html", "css", "javascript"];
+// const cv = [...name, ...age, ...contact, ...skills];
+// console.log(cv);
+
+//contact object with spread operator
+// const nameObj = {
+//   firstName: "mostafa",
+//   lastName: "shawky",
+// };
+// const ageObj = {
+//   age: 22,
+// };
+// const contactObj = {
+//   phone: 01004813734,
+//   email: "mostafashawky100000@gmail.com",
+// };
+// const skillsObj = {
+//   skills: ["html", "css", "javascript"],
+// };
+// const cvObj = { ...nameObj, ...ageObj, ...contactObj, ...skillsObj };
+// console.log(cvObj);
+
+//find max number in array using spread operator
+// const num = [
+//   10, 5, 20, 15, 30, 25, 40, 35, 50, 45, 60, 55, 70, 65, 80, 75, 90, 85, 100,
+//   95,
+// ];
+// const maxNum = Math.max(...num);
+// console.log(maxNum);
