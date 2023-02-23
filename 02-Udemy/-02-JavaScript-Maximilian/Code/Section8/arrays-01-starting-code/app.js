@@ -179,7 +179,51 @@
 // console.log(maxNum);
 
 //rest operator
-let getCv = (firstName, lastName, ...arg) => {
-  console.log(firstName, lastName, arg);
-};
-getCv("mostafa", "shawky", 21, 01004813734);
+// let getCv = (firstName, lastName, ...arg) => {
+//   console.log(firstName, lastName, arg);
+// };
+// getCv("mostafa", "shawky", 21, 01004813734);
+
+//array destructuring
+// const cv = [
+//   "mostafa shawky",
+//   22,
+//   "1234, ABC Street, XYZ City, ABC Country",
+//   01004813734,
+//   "mostafashawky100000@gmail.com",
+//   ["html", "css", "javascript"],
+// ];
+
+// const [myName, myAge, myAddress, myPhone, myEmail, mySkills] = cv;
+// console.log(myName, myAge, myAddress, myPhone, myEmail, mySkills);
+// const [, , , , , mySkills] = cv;
+// console.log(mySkills);
+
+//default values
+// const [
+//   myName,
+//   myAge,
+//   myAddress,
+//   myPhone,
+//   myEmail,
+//   mySkills = [],
+//   about = "i'm web developer",
+// ] = cv;
+// console.log(myName, myAge, myAddress, myPhone, myEmail, mySkills, about);
+
+//assigning rest of array to a variable
+// const [...rest] = cv;
+// console.log(rest);
+
+// const getFullName = () => {
+//   return ["mostafa", "shawky"];
+// };
+
+// const [...rest] = getFullName();
+// console.log(rest);
+
+//swap variables
+// let a = 10;
+// let b = 20;
+// [a, b] = [b, a];
+// console.log(a, b);
