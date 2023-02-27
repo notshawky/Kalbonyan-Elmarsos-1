@@ -15,11 +15,11 @@
 // }
 
 //maps are key value pairs
-const person1 = { name: "mostafa" };
-const person2 = { name: "shawky" };
+// const person1 = { name: "mostafa" };
+// const person2 = { name: "shawky" };
 
-const personData = new Map([[person1, [{ date: "yesterday", price: 10 }]]]);
-personData.set(person2, [{ date: "two weeks ago", price: 100 }]);
+// const personData = new Map([[person1, [{ date: "yesterday", price: 10 }]]]);
+// personData.set(person2, [{ date: "two weeks ago", price: 100 }]);
 
 // console.log(personData);
 
@@ -33,3 +33,11 @@ personData.set(person2, [{ date: "two weeks ago", price: 100 }]);
 // for (const value of personData.values()) {
 //   console.log(value);
 // }
+
+//weak sets and weak maps
+//weak sets and weak maps are similar to sets and maps but they dont prevent garbage collection
+
+// let person = { name: "mostafa" };
+// const persons = new WeakSet();
+// persons.add(person);
+// console.log(persons);
