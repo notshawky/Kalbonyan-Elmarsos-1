@@ -1,4 +1,4 @@
-const cv = {
+let cv = {
   fname: "mostafa",
   lname: "shawky",
   age: 21,
@@ -12,3 +12,6 @@ const cv = {
   // },
 };
 // cv.greet();
+cv.isJunior = true;
+delete cv.address;
+console.log(cv.address);
