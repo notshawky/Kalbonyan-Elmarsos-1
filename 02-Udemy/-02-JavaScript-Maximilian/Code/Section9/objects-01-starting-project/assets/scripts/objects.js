@@ -1,5 +1,10 @@
+const movielist = document.getElementById("movie-list");
+
+movielist.style["background-color"] = "red";
+movielist.style.display = "block";
+
 let cv = {
-  fname: "mostafa",
+  "first Name ": "mostafa",
   lname: "shawky",
   age: 21,
   address: {
@@ -14,4 +19,4 @@ let cv = {
 // cv.greet();
 cv.isJunior = true;
 delete cv.address;
-console.log(cv.address);
+console.log(cv["first Name "]);
