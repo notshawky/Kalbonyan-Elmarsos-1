@@ -1,22 +1,31 @@
-const movielist = document.getElementById("movie-list");
+const addMovieBtn = document.getElementById("add-movie-btn");
+const searchBtn = document.getElementById("search-btn");
 
-movielist.style["background-color"] = "red";
-movielist.style.display = "block";
+const movies = [];
 
-let cv = {
-  "first Name ": "mostafa",
-  lname: "shawky",
-  age: 21,
-  address: {
-    city: "El Senbellawein",
-    country: "egypt",
-  },
-  skills: ["html", "css", "js", "react", "nodejs"],
-  // greet: function () {
-  //   alert("hello world");
-  // },
+const addMovieHandler = () => {
+  const title = document.getElementById("title").value;
+  const extraName = document.getElementById("extra-name").value;
+  const extraValue = document.getElementById("extra-value").value;
+
+  if (
+    title.trim() === "" ||
+    extraName.trim() === "" ||
+    extraValue.trim() === ""
+  ) {
+    return;
+  }
+
+  const newMovie = {
+    info: {
+      title,
+      [extraName]: extraValue,
+    },
+    id: Math.random().toString(),
+  };
+
+  movies.push(newMovie);
+  console.log(movies);
 };
-// cv.greet();
-cv.isJunior = true;
-delete cv.address;
-console.log(cv["first Name "]);
+
+addMovieBtn.addEventListener("click", addMovieHandler);
