@@ -1,34 +1,25 @@
+class Product {
+  // title = "DEFAULT";
+  // imageUrl;
+  // description;
+  // price;
+
+  constructor(title, image, desc, price) {
+    this.title = title;
+    this.imageUrl = image;
+    this.description = desc;
+    this.price = price;
+  }
+}
+class ProductList {
+  products = [
+    new Product("Product 1", "https://picsum.photos/200/300", "product 1", 100),
+    new Product("Product 2", "https://picsum.photos/200/300", "Product 2", 200),
+    new Product("Product 3", "https://picsum.photos/200/300", "Product 3", 300),
+    new Product("Product 4", "https://picsum.photos/200/300", "product 4", 400),
+  ];
+}
 const productList = {
-  products: [
-    {
-      id: 1,
-      name: "Product 1",
-      price: 100,
-      quantity: 1,
-      image: "https://picsum.photos/200/300",
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      price: 200,
-      quantity: 1,
-      image: "https://picsum.photos/200/300",
-    },
-    {
-      id: 3,
-      name: "Product 3",
-      price: 300,
-      quantity: 1,
-      image: "https://picsum.photos/200/300",
-    },
-    {
-      id: 4,
-      name: "Product 4",
-      price: 400,
-      quantity: 1,
-      image: "https://picsum.photos/200/300",
-    },
-  ],
   render() {
     const renderHook = document.getElementById("app");
     const prodList = document.createElement("ul");
@@ -38,9 +29,9 @@ const productList = {
       prodEl.className = "product-item";
       prodEl.innerHTML = `
         <div>
-          <img src="${prod.image}" alt="${prod.name}">
+          <img src="${prod.imageUrl}" alt="${prod.title}">
           <div class="product-item__content">
-            <h2>${prod.name}</h2>
+            <h2>${prod.title}</h2>
             <h3>\$${prod.price}</h3>
             <p>${prod.description}</p>
             <button>Add to Cart</button>
