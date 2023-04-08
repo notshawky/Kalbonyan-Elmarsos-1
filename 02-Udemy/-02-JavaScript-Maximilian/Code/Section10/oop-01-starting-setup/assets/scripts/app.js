@@ -138,3 +138,23 @@
 // }
 
 // App.init();
+
+//practice on Constructor Functions
+
+// function Laptop1(model, price, color) {
+//   this.model = model;
+//   this.price = price - 100;
+//   this.color = color;
+// }
+
+// function Laptop2(model, price, color) {
+//   this.model = model;
+//   this.price = price - 200;
+//   this.color = color;
+// }
+
+// const laptop1 = new Laptop1("Dell", 1000, "Black");
+// const laptop2 = new Laptop2("HP", 1000, "White");
+
+// console.log(laptop1);
+// console.log(laptop2);
