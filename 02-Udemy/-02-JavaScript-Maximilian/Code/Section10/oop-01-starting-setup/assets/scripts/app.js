@@ -158,3 +158,23 @@
 
 // console.log(laptop1);
 // console.log(laptop2);
+
+// practice on Prototypes
+// function Welcome(cName) {
+//   return `Welcome ${cName}`;
+// }
+// console.log(Welcome("Shawky"));
+
+//add zero to the left of the number
+// String.prototype.zFill = function (width) {
+//   let n = this;
+//   while (n.length < width) n = `0${n}`;
+//   return n;
+// };
+// console.log("10".zFill(3));
+
+//Say I Love You to the person
+// String.prototype.sayILoveYou = function () {
+//   return `I love you ${this}`;
+// };
+// console.log("Shawky".sayILoveYou());
