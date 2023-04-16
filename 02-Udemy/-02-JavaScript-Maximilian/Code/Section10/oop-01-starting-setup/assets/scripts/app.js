@@ -1,143 +1,169 @@
-// class Product {
-//   // title = 'DEFAULT';
-//   // imageUrl;
-//   // description;
-//   // price;
+class Product {
+  // title = 'DEFAULT';
+  // imageUrl;
+  // description;
+  // price;
 
-//   constructor(title, image, desc, price) {
-//     this.title = title;
-//     this.imageUrl = image;
-//     this.description = desc;
-//     this.price = price;
-//   }
-// }
+  constructor(title, image, desc, price) {
+    this.title = title;
+    this.imageUrl = image;
+    this.description = desc;
+    this.price = price;
+  }
+}
 
-// class ShoppingCart {
-//   items = [];
+class ElementAttribute {
+  constructor(attrName, attrValue) {
+    this.name = attrName;
+    this.value = attrValue;
+  }
+}
 
-//   set cartItems(value) {
-//     this.items = value;
-//     this.totalOutput.innerHTML = `
-//       <h2>Total: \$${this.totalAmount.toFixed(2)}</h2>
-//     `;
-//   }
+class Component {
+  constructor(renderHookId) {
+    this.hookId = renderHookId;
+  }
 
-//   get totalAmount() {
-//     const sum = this.items.reduce((prevValue, curItem) => {
-//       return prevValue + curItem.price;
-//     }, 0);
-//     return sum;
-//   }
+  createRootElement(tag, cssClasses, attributes) {
+    const rootElement = document.createElement(tag);
+    if (cssClasses) {
+      rootElement.className = cssClasses;
+    }
+    if (attributes && attributes.length > 0) {
+      for (const attr of attributes) {
+        rootElement.setAttribute(attr.name, attr.value);
+      }
+    }
+    document.getElementById(this.hookId).append(rootElement);
+    return rootElement;
+  }
+}
 
-//   addProduct(product) {
-//     const updatedItems = [...this.items];
-//     updatedItems.push(product);
-//     this.items = updatedItems;
-//     this.totalOutput.innerHTML = `
-//       <h2>Total: \$${this.totalAmount.toFixed(2)}</h2>
-//     `;
-//   }
+class ShoppingCart extends Component {
+  items = [];
 
-//   render() {
-//     const cartEl = document.createElement("section");
-//     cartEl.innerHTML = `
-//       <h2>Total: \$${0}</h2>
-//       <button>Order Now!</button>
-//     `;
-//     cartEl.className = "cart";
-//     this.totalOutput = cartEl.querySelector("h2");
-//     return cartEl;
-//   }
-// }
+  set cartItems(value) {
+    this.items = value;
+    this.totalOutput.innerHTML = `<h2>Total: \$${this.totalAmount.toFixed(
+      2
+    )}</h2>`;
+  }
 
-// class ProductItem {
-//   constructor(product) {
-//     this.product = product;
-//   }
+  get totalAmount() {
+    const sum = this.items.reduce(
+      (prevValue, curItem) => prevValue + curItem.price,
+      0
+    );
+    return sum;
+  }
 
-//   addToCart() {
-//     App.addProductToCart(this.product);
-//   }
+  constructor(renderHookId) {
+    super(renderHookId);
+  }
 
-//   render() {
-//     const prodEl = document.createElement("li");
-//     prodEl.className = "product-item";
-//     prodEl.innerHTML = `
-//         <div>
-//           <img src="${this.product.imageUrl}" alt="${this.product.title}" >
-//           <div class="product-item__content">
-//             <h2>${this.product.title}</h2>
-//             <h3>\$${this.product.price}</h3>
-//             <p>${this.product.description}</p>
-//             <button>Add to Cart</button>
-//           </div>
-//         </div>
-//       `;
-//     const addCartButton = prodEl.querySelector("button");
-//     addCartButton.addEventListener("click", this.addToCart.bind(this));
-//     return prodEl;
-//   }
-// }
+  addProduct(product) {
+    const updatedItems = [...this.items];
+    updatedItems.push(product);
+    this.cartItems = updatedItems;
+  }
 
-// class ProductList {
-//   products = [
-//     new Product(
-//       "A Pillow",
-//       "https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg",
-//       "A soft pillow!",
-//       19.99
-//     ),
-//     new Product(
-//       "A Carpet",
-//       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Ardabil_Carpet.jpg/397px-Ardabil_Carpet.jpg",
-//       "A carpet which you might like - or not.",
-//       89.99
-//     ),
-//   ];
+  render() {
+    const cartEl = this.createRootElement("section", "cart");
+    cartEl.innerHTML = `
+      <h2>Total: \$${0}</h2>
+      <button>Order Now!</button>
+    `;
+    this.totalOutput = cartEl.querySelector("h2");
+  }
+}
 
-//   constructor() {}
+class ProductItem {
+  constructor(product) {
+    this.product = product;
+  }
 
-//   render() {
-//     const prodList = document.createElement("ul");
-//     prodList.className = "product-list";
-//     for (const prod of this.products) {
-//       const productItem = new ProductItem(prod);
-//       const prodEl = productItem.render();
-//       prodList.append(prodEl);
-//     }
-//     return prodList;
-//   }
-// }
+  addToCart() {
+    App.addProductToCart(this.product);
+  }
 
-// class Shop {
-//   render() {
-//     const renderHook = document.getElementById("app");
+  render() {
+    const prodEl = document.createElement("li");
+    prodEl.className = "product-item";
+    prodEl.innerHTML = `
+        <div>
+          <img src="${this.product.imageUrl}" alt="${this.product.title}" >
+          <div class="product-item__content">
+            <h2>${this.product.title}</h2>
+            <h3>\$${this.product.price}</h3>
+            <p>${this.product.description}</p>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+      `;
+    const addCartButton = prodEl.querySelector("button");
+    addCartButton.addEventListener("click", this.addToCart.bind(this));
+    return prodEl;
+  }
+}
 
-//     this.cart = new ShoppingCart();
-//     const cartEl = this.cart.render();
-//     const productList = new ProductList();
-//     const prodListEl = productList.render();
+class ProductList {
+  products = [
+    new Product(
+      "A Pillow",
+      "https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg",
+      "A soft pillow!",
+      19.99
+    ),
+    new Product(
+      "A Carpet",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Ardabil_Carpet.jpg/397px-Ardabil_Carpet.jpg",
+      "A carpet which you might like - or not.",
+      89.99
+    ),
+  ];
 
-//     renderHook.append(cartEl);
-//     renderHook.append(prodListEl);
-//   }
-// }
+  constructor() {}
 
-// class App {
-//   static cart;
+  render() {
+    const prodList = document.createElement("ul");
+    prodList.className = "product-list";
+    for (const prod of this.products) {
+      const productItem = new ProductItem(prod);
+      const prodEl = productItem.render();
+      prodList.append(prodEl);
+    }
+    return prodList;
+  }
+}
 
-//   static init() {
-//     const shop = new Shop();
-//     shop.render();
-//     this.cart = shop.cart;
-//   }
+class Shop {
+  render() {
+    const renderHook = document.getElementById("app");
 
-//   static addProductToCart(product) {
-//     this.cart.addProduct(product);
-//   }
-// }
+    this.cart = new ShoppingCart("app");
+    this.cart.render();
+    const productList = new ProductList();
+    const prodListEl = productList.render();
 
-// App.init();
+    renderHook.append(prodListEl);
+  }
+}
+
+class App {
+  static cart;
+
+  static init() {
+    const shop = new Shop();
+    shop.render();
+    this.cart = shop.cart;
+  }
+
+  static addProductToCart(product) {
+    this.cart.addProduct(product);
+  }
+}
+
+App.init();
 
 //practice on Constructor Functions
 
@@ -173,7 +199,7 @@
 // };
 // console.log("10".zFill(3));
 
-//Say I Love You to the person
+// Say I Love You to the person
 // String.prototype.sayILoveYou = function () {
 //   return `I love you ${this}`;
 // };
