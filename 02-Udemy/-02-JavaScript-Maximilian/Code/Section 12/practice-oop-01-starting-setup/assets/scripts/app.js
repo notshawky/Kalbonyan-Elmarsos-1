@@ -1,11 +1,32 @@
 class Tooltip {}
 
-class ProjectItem {}
+class ProjectItem {
+  constructor(id) {
+    this.id = id;
+    this.connectSwitchButton();
+    this.connectMoreInfoBtn();
+  }
+  connectMoreInfoBtn() {}
+  connectSwitchButton() {
+    const projectItemElement = document.getElementById(this.id);
+    const switchBtn = projectItemElement.querySelector("button:last-of-type");
+    switchBtn.addEventListener("click");
+  }
+}
 
 class ProjectList {
   constructor(type) {
+    projects = [];
     const projectItem = document.querySelectorAll(`#${type}-projects li`);
-    console.log(projectItem);
+    for (const projectItem of projectItems) {
+      this.projects.push(new ProjectItem(this.id));
+    }
+    console.log(this.projects);
+  }
+  addProject() {}
+
+  switchProject(projectId) {
+    this.projects = this.projects.filter((p) => p.id !== projectId);
   }
 }
 
