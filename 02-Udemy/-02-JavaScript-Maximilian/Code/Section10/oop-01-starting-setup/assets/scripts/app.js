@@ -131,7 +131,8 @@ class ProductList extends Component {
     this.#products = [
       new Product(
         "A Pillow",
-        "https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg",
+        "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+
         "A soft pillow!",
         19.99
       ),
